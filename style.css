@@ -1,0 +1,116 @@
+/* Reset base */
+body {
+    font-family: "Latin Modern Roman", serif;
+    font-size: 12pt;
+    line-height: 1.5;
+    margin: 0 8.5vw; /* Margini laterali aumentati del 70% (da 5vw a 8.5vw) */
+    background-color: #ffffff;
+    color: #000000;
+}
+
+/* Adatta i margini per schermi più stretti */
+@media screen and (max-width: 768px) {
+    body {
+        margin: 0 1em; /* Margini ridotti su schermi piccoli */
+    }
+}
+
+/* Titolo principale */
+.main-title {
+    text-align: center;
+    font-size: 2.5em;
+    font-style: italic;
+    margin-bottom: 0.3em;
+    font-weight: normal;
+}
+
+/* Titolo secondario */
+.subtitle {
+    text-align: center;
+    font-size: 1.4em;
+    color: #333333;
+    margin-bottom: 2em;
+    font-weight: normal;
+}
+
+/* Sezioni principali */
+.section {
+    background-color: #ffffff;
+    padding: 1.5em;
+    margin-bottom: 1.5em;
+    border-left: 3px solid #000000;
+    border-radius: 0;
+}
+
+/* Titoli h2 */
+.section h2 {
+    font-size: 1.8em;
+    margin-bottom: 0.5em;
+    border-bottom: 1px solid #000000;
+    padding-bottom: 0.3em;
+    font-weight: normal;
+}
+
+/* Titoli h3 */
+.subsection h3 {
+    font-size: 1.4em;
+    margin-top: 1em;
+    margin-bottom: 0.5em;
+    color: #000000;
+    font-weight: normal;
+}
+
+/* Titoli h4 */
+.subsection h4 {
+    font-size: 1.2em;
+    margin-top: 0.8em;
+    margin-bottom: 0.4em;
+    color: #000000;
+    font-weight: normal;
+}
+
+/* Testo normale */
+p {
+    margin-bottom: 1em;
+    text-align: justify;
+}
+
+/* Liste */
+ul {
+    margin: 1em 0;
+    padding-left: 2em;
+}
+
+/* Calcoli matematici */
+.calculation {
+    background-color: #f8f8f8;
+    padding: 0.8em 1em;
+    margin: 1em 0;
+    border-left: 2px solid #000000;
+    font-family: "Latin Modern Mono", monospace;
+    white-space: pre-wrap;
+    border-radius: 0;
+}
+
+/* GeoGebra container */
+#ggb-element {
+    width: 100%;
+    height: 600px;
+    border: 1px solid #000000;
+    margin: 1em 0;
+}
+
+/* Miglioramento della tipografia per MathJax */
+.mathjax {
+    font-family: "Latin Modern Math", serif;
+}
+
+#interactive-controls {
+    margin-bottom: 1em;
+    font-size: 1.1em;
+}
+
+#interactive-controls input[type="number"] {
+    width: 4em;
+    text-align: center;
+}
