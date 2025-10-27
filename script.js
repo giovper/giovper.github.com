@@ -1,9 +1,61 @@
 let variableMap = {};
 
-const calculationMap = {
-    "1.1": "P(X_p, Y_p)",
+const CM_passaggi_formule = {
+    "1.6": "y - Y_p = m(x - X_p)",
+    "1.7": "a_f x + b_f y + c_f = 0",
+    "1.8": "\\frac{|a_f X_c + b_f Y_c + c_f|}{\\sqrt{a_f^2 + b_f^2}}",
+    "1.9": "\\frac{|m X_c - Y_c - m X_p + Y_p|}{\\sqrt{m^2 + 1}}",
+    "1.10": "\\frac{|m X_c - Y_c - m X_p + Y_p|}{\\sqrt{m^2 + 1}} = r",
+    "1.11": "|m X_c - Y_c - m X_p + Y_p| = r \\sqrt{m^2 + 1}",
+    "1.12": "|m(X_c - X_p) - (Y_c - Y_p)| = r \\sqrt{m^2 + 1}",
+    "1.13": "m(X_c - X_p) - (Y_c - Y_p) = \\pm r \\sqrt{m^2 + 1}",
+    "1.14": "y - Y_p = m(x - X_p)",
+    "2.4": "y - Y_p = m(x - X_p)",
+    "2.5": "x^2 + \\left[ m(x - X_p) + Y_p \\right]^2 + a x + b \\left[ m(x - X_p) + Y_p \\right] + c = 0",
+    "2.6": "(1 + m^2)x^2 + \\left[ a + b m - 2 m^2 X_p + 2 m Y_p \\right]x + \\left[ m^2 X_p^2 - 2 m X_p Y_p + Y_p^2 + b Y_p - a m X_p + c \\right] = 0",
+    "2.7": "\\Delta = \\left[ a + b m - 2 m^2 X_p + 2 m Y_p \\right]^2 - 4 (1 + m^2) \\left[ m^2 X_p^2 - 2 m X_p Y_p + Y_p^2 + b Y_p - a m X_p + c \\right] = 0",
+    "2.8": "y - Y_p = m(x - X_p)",
+    "3.4": "M(X_m, Y_m) = \\left( \\frac{X_c + X_p}{2}, \\frac{Y_c + Y_p}{2} \\right)",
+    "3.5": "r_m = \\frac{\\sqrt{(X_c - X_p)^2 + (Y_c - Y_p)^2}}{2}",
+    "3.6": "(x - X_m)^2 + (y - Y_m)^2 = r_m^2",
+    "3.7": "x^2 + y^2 - 2 X_m x - 2 Y_m y + (X_m^2 + Y_m^2 - r_m^2) = 0",
+    "3.8": "\\begin{cases} x^2 + y^2 + a x + b y + c = 0 \\\\ x^2 + y^2 - 2 X_m x - 2 Y_m y + (X_m^2 + Y_m^2 - r_m^2) = 0 \\end{cases}",
+    "3.9": "D(X_D, Y_D) ~~~~~~~~ E(X_E, Y_E)",
+    "3.10": "m_D = \\frac{Y_D - Y_p}{X_D - X_p} ~~~~~~~~ m_E = \\frac{Y_E - Y_p}{X_E - X_p}",
+    "3.11": "y - Y_p = m_D (x - X_p) ~~~~~~~~ y - Y_p = m_E (x - X_p)"
+};
+
+const CM_passaggi_calcoli = {
+"1.6": "y - 2 = m(x - 1)",
+"1.7": "a_f x + b_f y + c_f = 0",
+"1.8": "\\frac{|a_f X_c + b_f Y_c + c_f|}{\\sqrt{a_f^2 + b_f^2}}",
+"1.9": "\\frac{|m*1 - 1* (-0.5) - m*1 + 2|}{\\sqrt{m^2 + 1}} = \\frac{|0.5 + 2|}{\\sqrt{m^2 + 1}} = \\frac{2.5}{\\sqrt{m^2 + 1}}",
+"1.10": "\\frac{2.5}{\\sqrt{m^2 + 1}} = r = 1.118",
+"1.11": "2.5 = 1.118 \\sqrt{m^2 + 1}",
+"1.12": "2.5^2 = (1.118)^2 * (m^2 + 1)",
+"1.13": "6.25 = 1.25 (m^2 + 1) \\Rightarrow 6.25 = 1.25 m^2 + 1.25 \\Rightarrow 6.25 - 1.25 = 1.25 m^2 \\Rightarrow 5 = 1.25 m^2 \\Rightarrow m^2 = 4 \\Rightarrow m = \\pm 2",
+"1.14": "y - 2 = 2(x - 1) \\Rightarrow y = 2x, \\quad y - 2 = -2(x - 1) \\Rightarrow y = -2x + 4",
+
+"2.4": "y - 2 = m(x - 1)",
+"2.5": "x^2 + [m(x-1) + 2]^2 - 2x + (m(x-1) + 2) = 0",
+"2.6": "x^2 + m^2(x-1)^2 + 4 m(x-1) + 4 - 2x + m(x-1) + 2 = 0 \\)<br><br>\\( x^2 + m^2(x^2 -2x +1) + 4 m x - 4 m +4 - 2x + m x - m + 2 = 0\\) <br><br> \\((1 + m^2)x^2 + (-2 m^2 + 5 m - 2)x + (m^2 -5 m + 6) = 0",
+
+"2.7": "\\Delta = (-2 m^2 + 5 m -2)^2 - 4(1 + m^2)(m^2 -5 m + 6) = 0 \\)<br><br>\\(\\Delta = (4 m^4 +25 m^2 +4 -20 m^3 +8m^2 -20m) + (-4 -4m^2)(m^2 -5 m +6) = 0 \\)<br><br>\\(\\Delta = 4 m^4 +25 m^2 +4 -20 m^3 +8m^2 -20m -4m^2 + 20m -24 -4m^4 + 20 m^3 -24m^2 = 0 \\)<br><br>\\(\\Delta = 5m^2 - 20 = 0\\)<br><br>\\(5m^2 = 20\\)<br><br>\\(m^2 = 4 \\Rightarrow m = 2 ~or~ m = -2",
+"2.8": "\\text{Risolvendo per } m \\Rightarrow m = 2, m = -2\\)<br><br>\\(y - 2 = 2(x-1) \\Rightarrow y = 2x\\)<br><br>\\(y - 2 = -2(x-1) \\Rightarrow y = -2x + 4",
+
+"3.4": "M(X_m, Y_m) = ((X_c + X_p)/2, (Y_c + Y_p)/2) = ((1+1)/2, (-0.5 + 2)/2) = (1, 0.75)",
+"3.5": "r_m = sqrt((X_c - X_p)^2 + (Y_c - Y_p)^2)/2 = sqrt((1-1)^2 + (-0.5-2)^2)/2 = sqrt(0 + 6.25)/2 = sqrt(6.25)/2 = 2.5/2 = 1.25",
+"3.6": "(x-1)^2 + (y-0.75)^2 = 1.25^2 = 1.5625",
+"3.7": "x^2 -2*1*x +1 + y^2 -2*0.75*y +0.5625 = 1.5625 \\Rightarrow x^2 -2x + y^2 -1.5 y +1.5625 -1.5625 = 0 \\Rightarrow x^2 + y^2 -2x -1.5 y = 0",
+"3.8": "\\begin{cases} x^2 + y^2 -2x + y = 0 \\\\ x^2 + y^2 -2x -1.5y = 0 \\end{cases}\\)<br><br>\\(\\text{Sottraendo le due equazioni: } (x^2 + y^2 -2x + y) - (x^2 + y^2 -2x -1.5 y) = 0 \\Rightarrow y + 1.5y = 2.5y = 0 \\Rightarrow y = 0\\)<br><br>\\(\\text{Sostituendo in una delle due circonferenze: } x^2 + 0 -2x + 0 = 0 \\Rightarrow x(x-2)=0 \\Rightarrow x=0 \\text{ o } x=2",
+"3.9": "D(0,0), E(2,0)",
+"3.10": "m_D = (0-2)/(0-1) = -2/-1 = 2, ~~~ m_E = (0-2)/(2-1) = -2/1 = -2",
+"3.11": "y - 2 = 2(x-1) \\Rightarrow y = 2x, ~~~ y - 2 = -2(x-1) \\Rightarrow y = -2x +4"
+};
+
+const CM_sistema_calcolo = {
+    "1.01": "P(X_p, Y_p)",
     "1.2": "x^2 + y^2 + a x + b y + c = 0",
-    "1.3": "x^2 + y^2 + a x + b y + c = 0",
     "1.4": "C(X_c, Y_c) = \\left( -\\frac{a}{2}, -\\frac{b}{2} \\right)",
     "1.5": "r = \\sqrt{X_c^2 + Y_c^2 - c}",
     "1.6": "y - Y_p = m(x - X_p)",
@@ -15,7 +67,11 @@ const calculationMap = {
     "1.12": "|m(X_c - X_p) - (Y_c - Y_p)| = r \\sqrt{m^2 + 1}",
     "1.13": "m(X_c - X_p) - (Y_c - Y_p) = \\pm r \\sqrt{m^2 + 1}",
     "1.14": "y - Y_p = m(x - X_p)",
-    "2.1": "P(X_p, Y_p)",
+    
+    "2.02": "x^2 + y^2 + a x + b y + c = 0",
+    "2.03": "C(X_c, Y_c) = \\left( -\\frac{a}{2}, -\\frac{b}{2} \\right)",
+    "2.04": "r = \\sqrt{X_c^2 + Y_c^2 - c}",
+
     "2.2": "x^2 + y^2 + a x + b y + c = 0",
     "2.3": "r^2 = X_c^2 + Y_c^2 - c \\geq 0",
     "2.4": "y - Y_p = m(x - X_p)",
@@ -23,6 +79,12 @@ const calculationMap = {
     "2.6": "(1 + m^2)x^2 + \\left[ a + b m - 2 m^2 X_p + 2 m Y_p \\right]x + \\left[ m^2 X_p^2 - 2 m X_p Y_p + Y_p^2 + b Y_p - a m X_p + c \\right] = 0",
     "2.7": "\\Delta = \\left[ a + b m - 2 m^2 X_p + 2 m Y_p \\right]^2 - 4 (1 + m^2) \\left[ m^2 X_p^2 - 2 m X_p Y_p + Y_p^2 + b Y_p - a m X_p + c \\right] = 0",
     "2.8": "y - Y_p = m(x - X_p)",
+
+    "3.01": "P(X_p, Y_p)",
+    "3.02": "x^2 + y^2 + a x + b y + c = 0",
+    "3.03": "C(X_c, Y_c) = \\left( -\\frac{a}{2}, -\\frac{b}{2} \\right)",
+    "3.04": "r = \\sqrt{X_c^2 + Y_c^2 - c}",
+
     "3.1": "P(X_p, Y_p)",
     "3.2": "x^2 + y^2 + a x + b y + c = 0",
     "3.3": "r^2 = X_c^2 + Y_c^2 - c \\geq 0",
@@ -39,12 +101,23 @@ const calculationMap = {
 function UpdateCalculationsAndGraph() {
     let interactiveDiv = document.getElementById("interactive");
     interactiveDiv.innerHTML = "";
-    const bValues = document.getElementById("check_parametri_numeri").checked;
-    const x_val = parseFloat(document.getElementById("xp_val").value);
-    const y_val = parseFloat(document.getElementById("yp_val").value);
-    const a_val = parseFloat(document.getElementById("a_val").value);
-    const b_val = parseFloat(document.getElementById("b_val").value);
-    const c_val = parseFloat(document.getElementById("c_val").value);
+    const bValues = document.getElementById("check_parametri_numeri").value != "P";
+    let x_val = parseFloat(document.getElementById("xp_val").value);
+    let y_val = parseFloat(document.getElementById("yp_val").value);
+    let a_val = parseFloat(document.getElementById("a_val").value);
+    let b_val = parseFloat(document.getElementById("b_val").value);
+    let c_val = parseFloat(document.getElementById("c_val").value);
+
+    if (document.getElementById("check_parametri_numeri").value == "E") {
+        // Exercise 100 values
+        x_val = 1.000;
+        y_val = 2.000;
+        a_val = -2.000;
+        b_val = 1.000;
+        c_val = 0.000;
+    }
+
+    //alert(bValues);
 
     // Validate inputs to prevent NaN
     if (isNaN(x_val) || isNaN(y_val) || isNaN(a_val) || isNaN(b_val) || isNaN(c_val)) {
@@ -61,12 +134,12 @@ function UpdateCalculationsAndGraph() {
     };
 
     const method = document.getElementById("select_metodo").value;
-    const methodFormulas = Object.keys(calculationMap).filter(id => id.startsWith(method + "."));
+    const methodFormulas = Object.keys(CM_sistema_calcolo).filter(id => id.startsWith(method + "."));
 
     // If checkbox is unchecked, show all formulas in order
     if (!bValues) {
         methodFormulas.forEach(id => {
-            renderCalculation(interactiveDiv, false, calculationMap[id], true);
+            renderCalculation(interactiveDiv, false, CM_sistema_calcolo[id], true);
         });
         // Draw only axes if no numerical values
         window.svgCartesianUpdate({});
@@ -97,6 +170,8 @@ function UpdateCalculationsAndGraph() {
         });
         return;
     }
+
+    //alert("asdas");
 
     switch (method) {
         case '1':
@@ -460,31 +535,51 @@ function renderCalculation(element, useValues, latexStr, add = false) {
     }
 }
 
+function aggiornaParametriOCalcoli ()
+{
+    const parametri = document.querySelector('input[name="rd_passaggi"]:checked').value == "Parametri";
+
+    if (parametri) {
+        // Render static calculations
+        Object.entries(CM_passaggi_formule).forEach(([id, latex]) => {
+            const el = document.getElementById(id);
+            if (!el) {
+                console.log(`Elemento con id ${id} non trovato`);
+            } else if (!latex) {
+                el.innerHTML = '';
+            } else {
+                renderCalculation(el, false, latex);
+            }
+        });
+    } else {
+            Object.entries(CM_passaggi_calcoli).forEach(([id, latex]) => {
+            const el = document.getElementById(id);
+            if (!el) {
+                console.log(`Elemento con id ${id} non trovato`);
+            } else if (!latex) {
+                el.innerHTML = '';
+            } else {
+                renderCalculation(el, false, latex);
+            }
+        });
+    }
+}
+
 window.onload = () => {
     const selectMetodo = document.getElementById("select_metodo");
     const checkParametri = document.getElementById("check_parametri_numeri");
     const parametriContainer = document.getElementById("parametri_container");
+    const formuleOCalcoliNeiMetodi = document.getElementById("formule_o_calcoli_nei_metodi");
     const inputs = parametriContainer.querySelectorAll("input[type='number']");
-    parametriContainer.style.visibility = checkParametri.checked ? "visible" : "hidden";
+    parametriContainer.style.visibility = checkParametri.value == "I" ? "visible" : "hidden";
     parametriContainer.style.display = "block";
 
     selectMetodo.addEventListener("change", UpdateCalculationsAndGraph);
     checkParametri.addEventListener("change", () => {
-        parametriContainer.style.visibility = checkParametri.checked ? "visible" : "hidden";
+        parametriContainer.style.visibility = checkParametri.value == "I" ? "visible" : "hidden";
         UpdateCalculationsAndGraph();
     });
     inputs.forEach(inp => inp.addEventListener("input", UpdateCalculationsAndGraph));
     UpdateCalculationsAndGraph();
-
-    // Render static calculations
-    Object.entries(calculationMap).forEach(([id, latex]) => {
-        const el = document.getElementById(id);
-        if (!el) {
-            console.log(`Elemento con id ${id} non trovato`);
-        } else if (!latex) {
-            el.innerHTML = '';
-        } else {
-            renderCalculation(el, false, latex);
-        }
-    });
+    aggiornaParametriOCalcoli();
 };

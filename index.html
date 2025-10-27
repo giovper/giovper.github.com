@@ -52,6 +52,52 @@
     </div>
 
     <div class="section">
+        <h2>Problema pag. 296 n. 100</h2>
+        <p>
+            Possiamo svolgere come esempio l'esercizio 100 di pagina 296 del libro di testo: 
+            "<strong>Verifica che il punto P è esterno alla circonferenza di cui è data l'equazione e determina le equazioni delle rette tangenti alla circonfrenza e passanti per P</strong>"
+            con l'equazione della circonferenza \( x^2 + y^2 - 2x + y = 0 \) e il punto \( P(1,2) \).
+            Prima di procedere nel determinare le equazioni delle rette tangenti, l'esercizio richiede di verificare che il punto P sia esterno alla circonferenza. Per fare ciò, calcoliamo il centro e il raggio della circonferenza:
+        </p>
+
+        <div class="subsection">
+            <h3>Passo 0: Dati, espressi con parametri</h3>
+            <p>Possiamo esprimere le coordinate del punto P e l'equazione generale della circonferenza come segue:</p>
+            <div class="calculation">\(P(X_p, Y_p) ~~~~~~ P(1, 2)\)</div>
+            <div class="calculation">\(x^2 + y^2 + a x + b y + c = 0 ~~~~~ x^2 + y^2 - 2 x + y = 0\)</div>
+        </div>
+
+        <div class="subsection">
+            <h3>Passo 1: Verificare se la circonferenza esiste e in caso affermativo trovarne centro e raggio; Verificare poi che il punto P è esterno</h3>
+            <p>Data l'equazione generale della circonferenza \( x^2 + y^2 + ax + by + c = 0 \), dopo aver verificato che rappresenti una circonferenza, ne determiniamo centro e raggio:</p>
+            <div class="calculation">\(x^2 + y^2 + a x + b y + c = 0 ~~~~~ x^2 + y^2 - 2 x + y = 0\)</div>
+            <p>Il centro \( C(X_c, Y_c) \) è dato da:</p>
+            <div class="calculation">\(C(X_c, Y_c) = \left( -\frac{a}{2}, -\frac{b}{2} \right) = \left( -\frac{-2}{2}, -\frac{1}{2} \right) ~~~~~ C(1, -0.5)\)</div>
+            <p>Il raggio \( r \) si ottiene come:</p>
+            <div class="calculation">\(r = \sqrt{X_c^2 + Y_c^2 - c} = \sqrt{1^2 + (-0.5)^2 - 0} = \sqrt{1.25} \approx 1.118\)</div>
+            <p>Per garantire che la circonferenza esista, il raggio deve essere reale (\( r^2 \geq 0 \)).</p>
+            <p>Ora verifichiamo se il punto \( P \) è esterno alla circonferenza calcolando la distanza tra \( P \) e il centro \( C \) e confrontandola con il raggio \( r \):</p>
+            <div class="calculation">
+                \(d_{PC} = \sqrt{(X_p - X_c)^2 + (Y_p - Y_c)^2} \quad \text{con } P(1, 2), C(1, -0.5): \quad d_{PC} = \sqrt{(1 - 1)^2 + (2 - (-0.5))^2} = \sqrt{6.25} = 2.5 > \sqrt{1.25} \approx 1.118\)
+            </div>
+            <p>Se la distanza \( PC \) è maggiore del raggio \( r \), come in questo caso, allora il punto \( P \) è esterno alla circonferenza, come richiesto.</p>
+            <p>I passaggi successivi, che sono diversi in base al metodo adottato, sono spiegati coi dati sotto forma di parametri.
+                Lo svolgimento completo dell'esercizio 100 è presente alla fine, nella sezione interattiva, dove è possibile vedere il procedimento
+                completo, sotto forma di formule, calcoli per dati numerici specifici oppure calcoli e grafici per l'esercizio 100.
+            </p>
+        </div>
+    </div>
+
+    <p> Visualizza i passaggi sotto forma di: </p>
+    <input type="radio" id="rd_parametri" name="rd_passaggi" value="Parametri" checked>
+    <label for="html">Parametri</label><br>
+    <input type="radio" id="rd_calcoli" name="rd_passaggi" value="Calcoli">
+    <label for="css">Calcoli</label><br>
+    <button onclick="aggiornaParametriOCalcoli()">Applica</button><br>
+
+    <br>
+
+    <div class="section">
         <h2>Metodo della distanza del fascio di rette</h2>
         <p>
             In questa sezione si descrive il metodo per determinare l’equazione delle rette che passano per
@@ -59,23 +105,7 @@
             metodo si basa sulla costruzione del fascio di rette passanti per P, sul calcolo della distanza tra
             il centro della circonferenza e le rette del fascio, e sull’imposizione della condizione di tangenza.
         </p>
-        <div class="subsection">
-            <h3>Passo 0: Dati, espressi con parametri</h3>
-            <p>Possiamo esprimere le coordinate del punto P e l'equazione generale della circonferenza come segue:</p>
-            <div class="calculation" id="1.1"></div>
-            <div class="calculation" id="1.2"></div>
-        </div>
 
-        <div class="subsection">
-            <h3>Passo 1: Verificare se la circonferenza esiste e in caso affermativo trovarne centro e raggio</h3>
-            <p>Data l'equazione generale della circonferenza \( x^2 + y^2 + ax + by + c = 0 \), dopo aver verificato che rappresenti una circonferenza, ne determiniamo centro e raggio:</p>
-            <div class="calculation" id="1.3"></div>
-            <p>Il centro \( C(X_c, Y_c) \) è dato da:</p>
-            <div class="calculation" id="1.4"></div>
-            <p>Il raggio \( r \) si ottiene come:</p>
-            <div class="calculation" id="1.5"></div>
-            <p>Per garantire che la circonferenza esista, il raggio deve essere reale (\( r^2 \geq 0 \)).</p>
-        </div>
 
         <div class="subsection">
             <h3>Passo 2: Costruzione del fascio di rette passanti per \( P \)</h3>
@@ -124,18 +154,6 @@
             tramite il discriminante (delta) uguale a zero. Imponendo il discriminante a zero, possiamo trovare i valori del coefficiente \(m_i\) per cui l'intersezione
             tra la retta e la circonferenza è unica, ovvero la retta è tangente.
         </p>
-        <div class="subsection">
-            <h3>Passo 0: Dati, espressi con parametri</h3>
-            <p>Possiamo esprimere le coordinate del punto \( P \) e l'equazione generale della circonferenza come segue:</p>
-            <div class="calculation" id="2.1"></div>
-            <div class="calculation" id="2.2"></div>
-        </div>
-
-        <div class="subsection">
-            <h3>Passo 1: Verificare se la circonferenza esiste</h3>
-            <p>Data l'equazione generale della circonferenza \( x^2 + y^2 + ax + by + c = 0 \), verifichiamo che rappresenti una circonferenza controllando che il raggio sia reale:</p>
-            <div class="calculation" id="2.3"></div>
-        </div>
 
         <div class="subsection">
             <h3>Passo 2: Costruzione del fascio di rette passanti per \( P \)</h3>
@@ -178,18 +196,6 @@
             è la metà della distanza tra \( C \) e \( P \). Di conseguenza, alla circonferenza ausiliaria appartengono sia \( C \) che \( P \). Le tangenti sono poi individuate come le
             rette passanti per \( P \) e per i punti di intersezione tra le due circonferenze.
         </p>
-        <div class="subsection">
-            <h3>Passo 0: Dati, espressi con parametri</h3>
-            <p>Definiamo il punto \( P \) e l'equazione della circonferenza:</p>
-            <div class="calculation" id="3.1"></div>
-            <div class="calculation" id="3.2"></div>
-        </div>
-
-        <div class="subsection">
-            <h3>Passo 1: Verificare se la circonferenza esiste</h3>
-            <p>Per la circonferenza \( x^2 + y^2 + ax + by + c = 0 \), controlliamo che il raggio sia reale:</p>
-            <div class="calculation" id="3.3"></div>
-        </div>
 
         <div class="subsection">
             <h3>Passo 2: Costruzione della circonferenza ausiliaria</h3>
@@ -228,18 +234,46 @@
     </div>
 
     <div class="section">
+        <h2>Conclusioni</h2>
+        <p>
+            I tre metodi presentati danno risultati equivalenti, anche se con approcci differenti.
+            La scelta del metodo più adatto può dipendere da vari fattori.
+            Ad esempio, il metodo del delta posto a zero diventa significativamente più semplice se molti coefficienti sono nulli,
+            mentre il metodo della doppia circonferenza è particolarmente utile e semplice in ambito grafico e di disegno tecnico. A livello di calcolo, può essere meno immediato
+            per il sistema di due equazioni di secondo grado, che però si semplificano.
+            Il metodo geometrico è invece quello più intuitivo come logica, anche se richiede lo svolgimento di una equazione con valori assoluti.
+            <br>
+            Inoltre, un procedimento simile a quello esposto può essere utilizzato per risolvere anche problemi simili.
+            In particolare, il secondo metodo può essere applicato per tutte le coniche perchè sfrutta proprietà comuni di tutte. Gli altri
+            due si limitano alle circonferenze.
+            <br>
+            In aggiunta, i primi due metodi sono adattabili in maniera semplice anche a tipi di problemi simili, ad esempio uno che richiede di trovare il parametro k di una circonfrenza,
+            data l'equazione di essa in funzione di k, tangente a una retta data. Il terzo metodo in questo caso si rivelerebbe molto più complesso.
+            <br>
+            Tutte le strategie proposte falliscono però nell'ottenere rette verticali perchè tutte usano l'equazione del fascio di rette.
+            Si potrebbe anche considerare il fascio di rette \( a(x-x_v) + b(y-y_v) = 0 \), dove \( (x_v, y_v) \) sono le coordinate del punto P,
+            ma aumenerebbe il numero delle incognite e la complessità dei calcoli.
+            Tuttavia, il grafico da tracciare all'inizio dello svolgimento dell'esercizio ci può però rivelare la presenza di rette verticali tra le tangenti.
+            <br>
+        </p>
+    </div>
+
+    <div class="section">
         <h2>Visualizzazione Interattiva</h2>
         <div id="interactive-controls">
             <label for="select_metodo">Metodo:</label>
             <select id="select_metodo">
                 <option value="1">Metodo 1 - Distanza</option>
                 <option value="2">Metodo 2 - Discriminante</option>
-                <option value="3">Metodo 3 - Doppia circonferenza</option>
+                <option value="3">Metodo 3 - Doppia circonferenza</option> -->
             </select>
 
-            <label>
-                <input type="checkbox" id="check_parametri_numeri" checked="true"> Inserire valori
-            </label>
+            <label for="check_parametri_numeri">Valori:</label>
+            <select id="check_parametri_numeri">
+                <option value="P">Parametri</option>
+                <option value="I">Valori Input</option>
+                <option value="E">Valori Es 100 p 296</option>
+            </select>
 
             <div id="parametri_container" style="margin-top:10px; display:none;">
                 <label>x² + y² + 
