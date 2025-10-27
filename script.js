@@ -44,7 +44,7 @@ const CM_passaggi_calcoli = {
 "2.8": "\\text{Risolvendo per } m \\Rightarrow m = 2, m = -2\\)<br><br>\\(y - 2 = 2(x-1) \\Rightarrow y = 2x\\)<br><br>\\(y - 2 = -2(x-1) \\Rightarrow y = -2x + 4",
 
 "3.4": "M(X_m, Y_m) = ((X_c + X_p)/2, (Y_c + Y_p)/2) = ((1+1)/2, (-0.5 + 2)/2) = (1, 0.75)",
-"3.5": "r_m = sqrt((X_c - X_p)^2 + (Y_c - Y_p)^2)/2 = sqrt((1-1)^2 + (-0.5-2)^2)/2 = sqrt(0 + 6.25)/2 = sqrt(6.25)/2 = 2.5/2 = 1.25",
+"3.5": "r_m = \\sqrt{(X_c - X_p)^2 + (Y_c - Y_p)^2}/2 = \\sqrt{(1-1)^2 + (-0.5-2)^2}/2 = \\sqrt{0 + 6.25}/2 = \\sqrt{6.25}/2 = 2.5/2 = 1.25",
 "3.6": "(x-1)^2 + (y-0.75)^2 = 1.25^2 = 1.5625",
 "3.7": "x^2 -2*1*x +1 + y^2 -2*0.75*y +0.5625 = 1.5625 \\Rightarrow x^2 -2x + y^2 -1.5 y +1.5625 -1.5625 = 0 \\Rightarrow x^2 + y^2 -2x -1.5 y = 0",
 "3.8": "\\begin{cases} x^2 + y^2 -2x + y = 0 \\\\ x^2 + y^2 -2x -1.5y = 0 \\end{cases}\\)<br><br>\\(\\text{Sottraendo le due equazioni: } (x^2 + y^2 -2x + y) - (x^2 + y^2 -2x -1.5 y) = 0 \\Rightarrow y + 1.5y = 2.5y = 0 \\Rightarrow y = 0\\)<br><br>\\(\\text{Sostituendo in una delle due circonferenze: } x^2 + 0 -2x + 0 = 0 \\Rightarrow x(x-2)=0 \\Rightarrow x=0 \\text{ o } x=2",
